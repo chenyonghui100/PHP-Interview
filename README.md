@@ -1,7 +1,7 @@
 ### PHP面试问答
-## <div id="01体系概述">1.计算机网络体系结构</div>
+## [1.计算机网络体系结构](./desc/01网络/QA.md#01体系概述)
 
-## <div id="02体系概述">2.TCP/UDP概述</div>
+## [2.TCP/UDP概述](https://github.com/chenyonghui100/PHP-Interview/edit/master/desc/01网络/QA.md#02体系概述)
 ssssssss
 
 
