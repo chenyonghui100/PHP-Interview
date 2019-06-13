@@ -1,17 +1,20 @@
 # PHP面试问答
 ---
 ## 1.计算机网络体系结构
-   * [计算机网络体系结构](./docs/01网络/QA.md#01体系概述)
-   * [TCP/UDP主要特点]()
-   * [建立TCP为什么要第三次握手]()
-   * [TIME-WAIT是什么？为什么必须等待2MLS]()
-   * [TCP,UDP区别以及适用场景]()
-   * [DNS主要作用]()
-   * [GET与POST请求的区别]()
-   * [HTTP报文组成]()
-   * [HTTP状态码]()
-   * [HTTPS与HTTP区别]()
-   * [什么是长连接]()
+   * [计算机网络体系结构](./docs/01网络/QA.md#体系概述)
+   * [一次网络请求的完整生命周期](./docs/01网络/QA.md#请求完整生命周期)
+   * [TCP,UDP主要特点](./docs/01网络/QA.md#TCP_UDP主要特点)
+   * [TCP,UDP区别以及适用场景](./docs/01网络/QA.md#TCP_UDP区别)
+   * [三次握手和四次挥手](./docs/01网络/QA.md#三次握手四次挥手)
+   * [建立TCP为什么要第三次握手](./docs/01网络/QA.md#三次握手原因)
+   * [TIME-WAIT是什么？为什么必须等待2MLS](./docs/01网络/QA.md#TIME-WAIT作用)
+   * [DNS主要作用](./docs/01网络/QA.md#DNS作用)
+   * [GET与POST请求的区别](./docs/01网络/QA.md#GET与POST区别)
+   * [HTTP报文组成](./docs/01网络/QA.md#HTTP报文组成)
+   * [HTTP状态码](./docs/01网络/QA.md#HTTP状态码)
+   * [HTTPS与HTTP区别](./docs/01网络/QA.md#HTTPS与HTTP区别)
+   * [什么是长连接](./docs/01网络/QA.md#长连接)
+
 ## 2.数据结构与算法
    * [衡量算法优劣的指标](./docs/01网络/QA.md#02体系概述)
    * [数组]()
