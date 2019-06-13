@@ -64,13 +64,13 @@
  * [常见索引](./docs/05mysql/QA.md#常见索引)
  * [BTree+](./docs/05mysql/QA.md#BTree+)
 ## 6.Redis
-  * [Redis 特点]()
-  * [支持的数据结构及命令]()
-  * [发布订阅]()
-  * [持久化策略]()
-  * [Redis事物]()
-  * [单线程如何应对并发请求]()
-  * [Redis 过期策略及内存淘汰机制]()
+  * [Redis 特点](./docs/06redis/QA.md#Redis)
+  * [支持的数据结构及命令](./docs/06redis/QA.md#redis命令)
+  * 发布订阅
+  * [持久化策略](./docs/06redis/QA.md#持久化策略)
+  * [Redis事物](./docs/06redis/QA.md#Redis事物)
+  * [单线程如何应对并发请求](./docs/06redis/QA.md#单线程如何应对并发请求])
+  * [Redis 过期策略及内存淘汰机制](./docs/06redis/QA.md#内存淘汰机制)
 
 ## 7.Linux
   * [Linux 基础命令]()
