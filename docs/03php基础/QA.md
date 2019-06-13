@@ -3,9 +3,7 @@
 ### <div id="概念理解"> 概念理解</div> 
 PHP（“PHP: Hypertext Preprocessor”，超文本预处理器的字母缩写）是一种被广泛应用的开放源代码的多用途脚本语言，它可嵌入到 HTML中，尤其适合 web 开发。
 
-特点：入门快，开发成本低，PHP是解释性的脚本语言,有很多开源框架可以使用。
-
-5.配置及部署相对简单一些
+特点：入门快，开发成本低，PHP是解释性的脚本语言,有很多开源框架可以使用。并且配置及部署相对简单。
 ### <div id="八大数据类型"> 八大数据类型</div> 
 简单数据类型有四种 ：boolean(布尔),integer(整型),float or double(浮点型),string(字符型) 
 
@@ -73,6 +71,11 @@ sort — 对数组排序
 array_shift 删除数组中首个元素，并返回被删除元素的值。
 
 array_unshift 向数组头部插入新元素
+
+implode  把数组转成字符串
+
+explode 字符串转数组
+
 ### <div id="cookie与session"> cookie 与session</div> 
 1、cookie数据存放在客户的浏览器上，session数据放在服务器上。
 
