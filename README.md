@@ -73,14 +73,14 @@
   * [Redis 过期策略及内存淘汰机制](./docs/06redis/QA.md#内存淘汰机制)
 
 ## 7.Linux
-  * [Linux 基础命令]()
-  * [chmod]()
-  * [sed]()
-  * [计划任务Contab]()
-  * [shell编程]()
-  * [Vim]()
-  * [负载查看]()
-  * [进程，线程，协程]()
+  * [Linux 基础命令](./docs/07linux和git/QA.md#基础命令)
+  * [文件查找](./docs/07linux和git/QA.md#文件查找)
+  * [权限命令](./docs/07linux和git/QA.md#权限命令)
+  * [contab 定时任务](./docs/07linux和git/QA.md#contab)
+  * [Vim](./docs/07linux和git/QA.md#Vim)
+  * shell编程
+  * [Git](./docs/07linux和git/QA.md#git)
+  * 
 
 ## 8.网络安全
   * [跨站脚本攻击(XSS)](./docs/08web安全/QA.md#XSS)
