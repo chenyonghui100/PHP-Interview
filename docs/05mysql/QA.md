@@ -1,7 +1,7 @@
 ## MySQL
 
 ### <div id="体系结构"> 体系结构</div> 
-![osi](../../asset/mysql.png)
+![osi](../../asset/mysql1.png)
 
 MySQL体系架构 可以分为 Server 层和存储引擎层两部分。
 
