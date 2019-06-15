@@ -137,3 +137,25 @@ PHP 5 新增了一个 final 关键字。如果父类中的方法被声明为 fin
 1. 封装：封装就是把抽取出来的数据和对数据的操作封装在一起，数据被保护在内部，程序的其他部分只有被授权的操作（方法）才能对数据进行操作。
 1. 继承：继承就是一个子类(Subclass)通过 extends 父类 把父类(BaseClass)中的public 和 protected 的属性和方法继续下来，不能继承private属性和方法。php不能多继承，可以多层继承。
 1. 多态：一个类，被多个子类继承，如果这个类的某个方法，在多个子类中，表现出不同的功能，我们称这种行为为多态。(同一个类的不同子类表现出不同的形态)
+
+### <div id="composer"> Composer</div>
+
+Composer 是 PHP 的一个依赖管理工具。我们可以在项目中声明所依赖的外部工具库，Composer 会帮你安装这些依赖的库文件，有了它，我们就可以很轻松的使用一个命令将其他人的优秀代码引用到我们的项目中来。
+
+Composer 默认情况下不是全局安装，而是基于指定的项目的某个目录中（例如 vendor）进行安装。
+
+Composer 需要 PHP 5.3.2+ 以上版本，且需要开启 openssl。
+###### 简单解释
+---
+
+- composer install 如有 composer.lock 文件，直接安装，否则从 composer.json 安装最新扩展包和依赖；
+- composer update 从 composer.json 安装最新扩展包和依赖；
+- composer update vendor/package 从 composer.json 或者对应包的配置，并更新到最新；
+- composer require new/package 添加安装 new/package, 可以指定版本，如： composer require new/package ~2.5.
+
+**composer update 这个命令在我们现在的逻辑中，可能会对项目造成巨大伤害。**
+
+因为 composer update 的逻辑是按照 composer.json 指定的扩展包版本规则，把所有扩展包更新到最新版本，注意，是 所有扩展包，举个例子，你在项目一开始的时候使用了 monolog，当时的配置信息是
+
+"monolog/monolog": "1.*",
+安装的是 monolog 1.1 版本，而一个多月以后的现在，monolog 已经是 1.2 了，运行命令后直接更新到 1.2，这时项目并没有针对 1.2 进行过测试，项目一下子变得很不稳定，情况有时候会比这个更糟糕，尤其是在一个庞大的项目中，你没有对项目写完整覆盖测试的情况，什么东西坏掉了你都不知道。

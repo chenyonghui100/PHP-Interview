@@ -27,7 +27,7 @@
    * [选择排序](./docs/02数据结构与算法/QA.md#选择排序)
    * [归并排序](./docs/02数据结构与算法/QA.md#归并排序)
    * [快速排序](./docs/02数据结构与算法/QA.md#快速排序)
-## 3.PHP 基础
+## 3.PHP
   * [概念理解](./docs/03php基础/QA.md#概念理解)
   * [八大数据类型](./docs/03php基础/QA.md#快速排序)
   * [echo,print,print_r,var_dump区别](./docs/03php基础/QA.md#八大数据类型)
@@ -40,6 +40,7 @@
   * [类中修饰符public ,private ,protected 表示什么](./docs/03php基础/QA.md#访问修饰符)
   * [类的静态调用和实例化调用](./docs/03php基础/QA.md#类调用)
   * [面向对象理解](./docs/03php基础/QA.md#面向对象)
+  * [Composer](./docs/03php基础/QA.md#composer)
 ## 4.WEB前端
   * [web 语义化](./docs/04web前端/QA.md#Web语义化)
   * [CSS选择器分类](./docs/04web前端/QA.md#CSS选择器)
@@ -99,7 +100,9 @@
   * 待完善
 
 ## 10.框架篇（Laravel）
-   * [生命周期]()
+   * 生命周期
+   * 路由
+   * 中间件
 ## 11.架构篇
   * [如何让系统支持高并发](./docs/11架构篇/QA.md#如何让系统支持高并发)
   * Nginx配置([正向代理](./docs/11架构篇/QA.md#正向代理),[反向代理](./docs/11架构篇/QA.md#反向代理),[负载均衡](./docs/11架构篇/QA.md#负载均衡))
@@ -109,6 +112,10 @@
   * [缓存雪崩](./docs/11架构篇/QA.md#缓存雪崩),[缓存穿透](./docs/11架构篇/QA.md#缓存穿透)
   * [如何保证缓存与数据库的一致性](./docs/11架构篇/QA.md#缓存与数据库的一致性)
   * 待完善
+  * ElasticeSearch(分布式架构索引)
+  * LK(分词器)
+  * 消息队列(Kafka,RabbitMQ,Redis)
+
 
 
 
