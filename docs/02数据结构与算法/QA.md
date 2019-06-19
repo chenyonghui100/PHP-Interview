@@ -247,6 +247,38 @@
 ![tree](../../asset/alltree.jpg)
 
 若设二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。
+
+### <div id="二分查找"> 二分查找</div>
+
+对于基于数字索引的数组元素的查找，我们可能第一反应都是遍历这个数组，直到给定数组元素值和待查找的值相等时，返回索引值并退出，否则一直遍历到最后一个元素，如果还是没有找到则返回-1，这样的查找虽然是简单粗暴了点，但是对于规模不大的数据集，也是没什么问题的，但是很明显，对于n个元素的数组，这种查找的时间复杂度是 O(n)，随着数据规模的增加，性能会越来越差，设想如果数据集的长度是40亿（约2的32次方），那么最差的情况需要遍历数组40亿次。
+
+所谓二分查找，针对的是一个有序的数据集合（这点很重要），查找思想有点类似分治思想。每次都通过跟区间的中间元素对比，将待查找的区间缩小为之前的一半，直到找到要查找的元素，或者区间被缩小为0。注意到二分查找针对的必须是已经排序过的有序数组，否则不能使用该算法。
+
+	<?php
+    
+    function binary_search($nums, $num)
+    {
+        return binary_search_internal($nums, $num, 0, count($nums) - 1);
+    }
+    function binary_search_internal($nums, $num, $low, $high)
+    {
+        if ($low > $high) {
+            return -1;
+        }
+    
+        $mid = floor(($low + $high) / 2);
+        if ($num > $nums[$mid]) {
+            return binary_search_internal($nums, $num, $mid + 1, $high);
+        } elseif ($num < $nums[$mid]) {
+            return binary_search_internal($nums, $num, $low, $mid - 1);
+        } else {
+            return $mid;
+        }
+    }
+    
+    $nums = [1, 2, 3, 4, 5, 6];
+    $index = binary_search($nums, 5);
+    print $index; 
 ### <div id="冒泡排序"> 冒泡排序</div> 
 冒泡排序只会操作相邻的两个数据。每次冒泡操作都会对相邻的两个元素进行比较，看是否满足大小关系要求，如果不满足就让它俩互换。一次冒泡会让至少一个元素移动到它应该在的位置，重复 n 次，就完成了 n 个数据的排序工作。
  
