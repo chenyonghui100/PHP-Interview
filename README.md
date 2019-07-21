@@ -79,7 +79,7 @@
   * [Linux 基础命令](./docs/07linux和git/QA.md#基础命令)
   * [文件查找](./docs/07linux和git/QA.md#文件查找)
   * [权限命令](./docs/07linux和git/QA.md#权限命令)
-  * [contab 定时任务](./docs/07linux和git/QA.md#contab)
+  * [crontab 定时任务](./docs/07linux和git/QA.md#crontab)
   * [Vim](./docs/07linux和git/QA.md#Vim)
   * shell编程
   * [Git](./docs/07linux和git/QA.md#git)
@@ -91,7 +91,7 @@
   * [刷新提交](./docs/08web安全/QA.md#刷新提交)
   * [漏洞扫描](./docs/08web安全/QA.md#漏洞扫描)
   * [DDOS攻击](./docs/08web安全/QA.md#DDOS攻击)
-  
+
 
 ## 9.设计模式
   * [如何理解设计模式](./docs/09设计模式/QA.md#设计模式概述)

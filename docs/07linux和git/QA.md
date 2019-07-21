@@ -62,7 +62,7 @@ chmod u=rwx，g=rx，o=rx abc：同上u=用户权限，g=组权限，o=不同组
 chmod u-x，g+w abc：给abc去除用户执行的权限，增加组写的权限
 
 chmod a+r abc：给所有用户添加读的权限
-### <div id="contab"> contab 定时任务</div> 
+### <div id="crontab"> crontab 定时任务</div> 
 **crontab命令格式：**
 
 {minute} {hour} {day-of-month} {month} {day-of-week} {full-path-to-shell-script}
