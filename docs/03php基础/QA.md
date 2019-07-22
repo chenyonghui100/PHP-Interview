@@ -100,7 +100,7 @@ explode 字符串转数组
 	public function __destruct(){
 		/**/
 	}
-	
+
 ### <div id="访问修饰符"> 访问修饰符public ,private ,protected 表示什么</div> 
 对属性或方法的访问控制，是通过在前面添加关键字 public（公有），protected（受保护）或 private（私有）来实现的。被定义为公有的类成员可以在任何地方被访问
 
@@ -112,25 +112,31 @@ explode 字符串转数组
 
 PHP 5 新增了一个 final 关键字。如果父类中的方法被声明为 final，则子类无法覆盖该方法。如果一个类被声明为 final，则不能被继承
 ### <div id="类调用"> 类的静态调用和实例化调用</div> 
-	class A{
-    
-	    public function bar(){
-	        echo 'bar'.PHP_EOL;
-	    }
-	    public static function foo(){
-	        echo 'foo'.PHP_EOL;
-	    }
-	}
+```php
+class A{
+
+    public function bar(){
+        echo 'bar'.PHP_EOL;
+    }
+    public static function foo(){
+        echo 'foo'.PHP_EOL;
+    }
+}
+```
 静态调用 
 
-	A::foo();
+```php
+A::foo();
+```
 
 >注： 只能调用静态方法
 
 实例化调用 :
 
-	$obj = new A();
-	$obj->foo();
+```php
+$obj = new A();
+$obj->foo();
+```
 ### <div id="面向对象"> 面向对象的理解</div>
 面向对象的三要素：继承、封装和多态。
 

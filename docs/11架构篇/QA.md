@@ -215,21 +215,23 @@
 #### 反向代理服务配置
 在 Nginx 配置文件中的 location 块中，这是 proxy_pass ` 指令。
 
-	server{
-	listen 80;
-	  server_name test.com;
-	  #将本机接收到的test.com的请求全部转发到另外一台服务器192.168.78.122
-	  location /{
-	    proxy_pass http://192.168.78.122; 
-	    #下面是其他辅助指令
-	    proxy_set_header Host $host; #更改来自客户端的请求头信息
-	    proxy_set_header X-Real_IP $remote_addr;    #用户真实访问ip
-	    proxy_connect_timeout 2; #配置nginx与后端服务器建立连接的超时时间
-	    proxy_read_timeout 2; #配置nginx向后端发出read请求的等待响应超时时间
-	    proxy_send_timeout 2; #配置nginx向后端服务器发出write请求的等待响应超时时间
-	    proxy_redirect http://www.baidu.com; #用于修改后端服务器返回的响应头中的Location和Refresh
-	  }
-	}
+```nginx
+server{
+listen 80;
+  server_name test.com;
+  #将本机接收到的test.com的请求全部转发到另外一台服务器192.168.78.122
+  location /{
+    proxy_pass http://192.168.78.122; 
+    #下面是其他辅助指令
+    proxy_set_header Host $host; #更改来自客户端的请求头信息
+    proxy_set_header X-Real_IP $remote_addr;    #用户真实访问ip
+    proxy_connect_timeout 2; #配置nginx与后端服务器建立连接的超时时间
+    proxy_read_timeout 2; #配置nginx向后端发出read请求的等待响应超时时间
+    proxy_send_timeout 2; #配置nginx向后端服务器发出write请求的等待响应超时时间
+    proxy_redirect http://www.baidu.com; #用于修改后端服务器返回的响应头中的Location和Refresh
+  }
+}
+```
 
 
 
@@ -245,42 +247,47 @@
 |权重方式（weight）|利用 weight 制定轮询的权重比率，与访问率成正比，用于后端服务器性能不均的情况，性能好的服务器 weight 高一点。|
 |ip_hash|使每个访客固定访问一个后端服务器，这样可以解决 session 共享的问题。|
 |第三方模块（fair、url_hash）nginx 默认不包含第三方模块，使用时需要安装|第三方模块采用 fair，按照每台服务器的响应时间来分配，响应时间短的优先分配。如果第三方模块采用的是 url_hash，则安装 url 的 hash 值来分配。|
-	
+
 **一般轮询配置**
 
-	server{
-	    listen 80;
-	  server_name test.test;
-	  location / {
-	    proxy_pass http://web_server; #反向代理
-	  }
-	}
-	#配置负载均衡服务器组
-	upstream web_server {
-	    server 192.168.78.128;
-	  server 192.168.78.129;
-	}	
-	
+```nginx
+server{
+    listen 80;
+  server_name test.test;
+  location / {
+    proxy_pass http://web_server; #反向代理
+  }
+}
+#配置负载均衡服务器组
+upstream web_server {
+    server 192.168.78.128;
+  server 192.168.78.129;
+}	
+```
+
 **加权轮询配置**
 
-	#配置负载均衡服务器组
-	upstream web_server {
-	    server 192.168.78.128 weight=1;
-	  server 192.168.78.129 weight=3;
-	}	
+```nginx
+#配置负载均衡服务器组
+upstream web_server {
+    server 192.168.78.128 weight=1;
+  server 192.168.78.129 weight=3;
+}	
+```
 
 **ip_hash 配置**
 
-	upstream web_server{
-	    ip_hash;
-	  server 192.168.78.120;
-	  server 192.168.78.123;
-	  server 192.168.78.33 down; #如果这台服务器宕机，则用down表示当前服务器暂不参与负载均衡
-	}
+```nginx
+upstream web_server{
+    ip_hash;
+  server 192.168.78.120;
+  server 192.168.78.123;
+  server 192.168.78.33 down; #如果这台服务器宕机，则用down表示当前服务器暂不参与负载均衡
+}
+```
 
 >使用 ip_hash 的时候，不能使用 weight 和 backup。
 <div id="单点登录">单点登录</div> 
-
 单点登录英文全称Single Sign On，简称就是SSO。它的解释是：在多个应用系统中，只需要登录一次，就可以访问其他相互信任的应用系统。
 
 ##### 同域下的单点登录
