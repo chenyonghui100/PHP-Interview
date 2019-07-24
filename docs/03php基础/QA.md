@@ -36,9 +36,9 @@ echo "String 1", "String 2";
 即使print可用于表达式，但这种用法，常常不利于代码可读性，与其他操作符混用容易让人误解
 echo和print都是语言结构，print_r和var_dump是普通函数。echo或print使用时，不需要使用括号将变量括起来
 ### <div id="判空函数区别"> isset 和empty 区别</div> 
-isset：检测变量是否已设置并且非 NULL
+isset：变量存在并且非null返回true，
 
-empty：判断变量是否为空，变量为 0/false 也会被认为是空；变量不存在，不会产生警告
+empty：变量不存在或者为空，以及==null的数据类型均会返回true。
 ### <div id="包含函数区别"> include ,require ,include_once ,require_once 区别</div> 
 include包含文件时，当包含的文件不存在，系统会报出警告级别的错误，程序会继续往下执行。   
 require包含文件时，当包含的文件不存在，系统会报一个致命级别的错误。程序将终止执行。
