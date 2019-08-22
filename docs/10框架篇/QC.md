@@ -71,6 +71,7 @@ public function outResource($data, $success = true, $error_code = "")
  * @return mixed
  */
 function httpPostRequest($url, $data = [], $header = [])
+{
   if (is_array($data)) {
         $data = http_build_query($data);
     }
@@ -109,15 +110,5 @@ function httpGetRequest($url)
     $data = curl_exec($curl);
     curl_close($curl);
     return $data;
-}
-  
+}  
 ```
-
-
-    //https请求
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-    $result = curl_exec($ch);
-    curl_close($ch);
-    return $result;
-}
