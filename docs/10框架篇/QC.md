@@ -59,3 +59,65 @@ public function outResource($data, $success = true, $error_code = "")
     }
 ```
 返回数据时调用这个方法即可。
+
+#### <div id="curl"> CURL请求接口</div> 
+
+```php
+/**
+ * HTTP POST 请求
+ * @param string $url
+ * @param array $data
+ *
+ * @return mixed
+ */
+function httpPostRequest($url, $data = [], $header = [])
+  if (is_array($data)) {
+        $data = http_build_query($data);
+    }
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 50);
+    if (!empty($header)) {
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+    }
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    //https请求
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
+  
+  }
+
+/**
+ * HTTP GET 请求
+ * @param string $url
+ * @return mixed
+ */
+function httpGetRequest($url)
+{
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_HEADER, 0);
+    curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 30);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 50);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    $data = curl_exec($curl);
+    curl_close($curl);
+    return $data;
+}
+  
+```
+
+
+    //https请求
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
+}
