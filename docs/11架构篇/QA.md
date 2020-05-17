@@ -471,3 +471,137 @@ Redis 挂掉了，请求全部走数据库。
     - 在高并发下表现优异，在原子性被破坏时表现不如意
 
 参考资料[Cache Aside Pattern](https://github.com/doocs/advanced-java/blob/master/docs/high-concurrency/redis-consistence.md)
+
+### <div id="ElasticeSearch">ElasticeSearch</div> 
+
+Es  单实例部署
+
+1.  wget 下载es文件
+2.  tar -vxf es.tar.gz  解压文件
+3.  cd 进入目录
+4. Java -version 查看java 版本，必须高于1.8
+5. ./bin/elasticsearch   启动服务
+
+ 
+
+ 
+
+Head 插件安装
+
+1. 进入 github.com
+
+2. 搜索 elasticsearch-head
+
+3. 选择 moby对应的 进行下载。
+
+4. 解压： 如果使用wget 下载的zip 文件，则使用unzip 来解压
+
+5. cd 进入目录
+
+6. 使用 node  -v 查看node 版本
+
+7. npm install  安装
+
+8. npm run start 启动head
+
+9. 浏览器访问 ip:9100
+
+ 
+
+ 
+
+配置跨域导致的head 不能连接es的问题：
+
+1. vim config/elasticsearch.yml
+
+2. 添加：
+
+```
+http.cors.enable: true
+
+http:cors.allow-origin: ”*”
+```
+
+3. ./bin/elasticsearch  -d   启动进程
+
+ 
+
+分布式安装
+
+1. 修改配置文件，设置一个master
+
+vim config/elasticsearch.yml
+
+ ```
+cluster.name: wali    //集群名称
+
+node.name: master
+
+node.master: true
+
+network.host: 127.0.0.1    //绑定ip
+ ```
+
+启动服务：
+
+ 
+
+2. 安装es 从节点
+
+1) copy 或 下载 tar包：如:  cp elasticsearch-5.6.tar.gz es_slave
+
+2) cd es_slave
+
+3) 使用 tar -vxf 命令进行解压
+
+4) cd 目录后修改配置文件
+
+vim config/elasticsearch.yml
+
+ 
+
+cluster.name: wali   //与主节点相同
+
+node.name: salve1
+
+ 
+
+network.host: 127.0.0.1
+
+http.port: 8200  //监听端口  如果部署在一台机器，避免与master监听端口发生冲突。
+
+discovery.zen.ping.unicast.hosts: [“127.0.0.1”]    //查找master 的ip ,否则不能加入
+
+ 
+
+创建索引:  PUT   http://%3Cip%3E:%3Cport%3E/%3C索引%3E
+
+查看索引:  GET   http://%3Cip%3E:%3Cport%3E/%3C索引%3E
+
+删除索引:  DELETE  http://%3Cip%3E:%3Cport%3E/%3C索引%3E
+
+ 
+
+创建文档: PUT  localhost:9200/accounts/person/1
+
+注意：需要有body体 如：
+
+{
+
+ "user":"张三",
+
+ "title":"工程师",
+
+ "desc":"数据库管理1"
+
+}
+
+创建index:accounts  type:person  id: 1 文档
+
+ 
+
+如果请求url 格式为localhost:9200/accounts/person 需要为post 请求，然后会返回_id 为随机字符串
+
+
+
+参考：[阮一峰](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)

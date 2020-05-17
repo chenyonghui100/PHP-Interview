@@ -68,8 +68,8 @@
  * [BTree+](./docs/05mysql/QA.md#BTree+)
 ## 6.Redis
   * [Redis 特点](./docs/06redis/QA.md#Redis)
+  * [Redis 为什么这么快](./docs/06redis/QA.md#Redis为什么这么快)
   * [支持的数据结构及命令](./docs/06redis/QA.md#redis命令)
-  * 发布订阅
   * [持久化策略](./docs/06redis/QA.md#持久化策略)
   * [Redis事物](./docs/06redis/QA.md#Redis事物)
   * [单线程如何应对并发请求](./docs/06redis/QA.md#单线程如何应对并发请求])
@@ -121,10 +121,9 @@
   * [REST 规范](./docs/11架构篇/QA.md#REST规范)
   * [缓存雪崩](./docs/11架构篇/QA.md#缓存雪崩),[缓存穿透](./docs/11架构篇/QA.md#缓存穿透)
   * [如何保证缓存与数据库的一致性](./docs/11架构篇/QA.md#缓存与数据库的一致性)
-  * 待完善
-  * ElasticeSearch(分布式架构索引)
-  * LK(分词器)
-  * 消息队列(Kafka,RabbitMQ,Redis)
+  * [ElasticeSearch(分布式架构索引)](./docs/11架构篇/QA.md#ElasticeSearch)
+  * [Kafka](./docs/11架构篇/QA.md#Kafka)
+  * docker
   * swoole
   * mycat
 
