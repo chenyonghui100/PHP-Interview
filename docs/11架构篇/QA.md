@@ -605,3 +605,16 @@ discovery.zen.ping.unicast.hosts: [“127.0.0.1”]    //查找master 的ip ,否
 
 
 参考：[阮一峰](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
+
+### <div id="composer">composer</div> 
+
+**简介**
+
+> composer 依赖管理工具，且实现了自动加载。开发人员只需要几个命令行，就能获取其他开发者的包，PHP 开发工作因此变得如同堆积木，可以根据业务的需求，快速方便地拆解组合代码。它不是一个包管理器。是的，它涉及 “packages” 和 “libraries”，但它在每个项目的基础上进行管理，在你项目的某个目录中（例如 vendor）进行安装。默认情况下它不会在全局安装任何东西。因此，这仅仅是一个依赖管理。
+
+**命令**
+
+> - composer install 依据当前目录下的 composer.lock（锁文件） 或 composer.json 文件，所定义的依赖关系，安装依赖包。
+> - composer update 更新依赖版本，如果你修改了 composer.json 中的依赖关系，想让 composer 按照 composer.json 文件中的定义执行更新操作，就用 update 命令。
+> - composer require require 命令一般用来安装新的依赖包，并将依赖写入当前目录的 composer.json 文件中。如果 composer.json 文件中，添加或改变了依赖，修改后的依赖关系将被安装或者更新。
+> - create-project 你可以使用 create-project 从现有的包中创建一个新的项目。它相当于执行了 git clone 命令后，将这个包的依赖安装到它自己的 vendor 目录。
