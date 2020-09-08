@@ -4,7 +4,7 @@
 
 #### 获取查询SQL
 
-```
+```php
 $query = User::find()->where(['LIKE', 'name', 'ad%', false]);
 
 $commandQuery = clone $query;
@@ -13,7 +13,7 @@ echo $commandQuery->createCommand()->getRawSql(); // SELECT * FROM `user` WHERE 
 
 #### 查询数据表中具体列
 
-```
+```php
 return \yii\helpers\ArrayHelper::getColumn(User::find()->all(), 'name');
 
 return User::find()->select('name')->asArray()->column();
@@ -23,7 +23,7 @@ return User::find()->select('name')->asArray()->column();
 
 - 使用`find_in_set()`等函数，需要用到`Expression()` 表达式。
 
-```
+```php
 User::find()
     ->where(new yii\db\Expression('FIND_IN_SET(:status, status)'))
     ->addParams([':status' => 1])
@@ -32,7 +32,7 @@ User::find()
 
 - 避免select里的子查询被识别成字段
 
-```
+```php
 $quert = User::find()
 	->select([
           new Expression('count(*) as count , count(distinct mobile) as mnumber')
@@ -42,7 +42,7 @@ $quert = User::find()
 
 #### 模型中事务编写
 
-```
+```php
 Yii::$app->db->transaction(function() {
     $order = new Order($customer);
     $order->save();
@@ -66,7 +66,7 @@ try {
 
 即建立了联合唯一索引的字段，验证时保证数据的完整。
 
-```
+```php
 [['store_id', 'member_name'], 'unique', 'targetAttribute' => ['store_id', 'member_name'], 'message' => 'The combination of Store ID and Member Name has already been taken.'],
 ```
 
@@ -74,7 +74,7 @@ try {
 
 校验 `country_id` 在 `Country` 中是否存在，一般用于一些外键关联的数据表之间的数据约束。
 
-```
+```php
 public function rules()
 {
 	return [
@@ -85,7 +85,7 @@ public function rules()
 
 #### 表单验证两个字段选取一个
 
-```
+```php
 public function rules()
 {
     return [
@@ -100,7 +100,7 @@ public function rules()
 
 #### Like 模糊查询
 
-```
+```php
 $query = User::find()->where(['LIKE', 'name', 'ad%', false]); // SELECT * FROM `user` WHERE `name` LIKE 'ad%'
 ```
 
@@ -108,7 +108,7 @@ $query = User::find()->where(['LIKE', 'name', 'ad%', false]); // SELECT * FROM `
 
 调用`yii\db\Connection`的cache方法，写入回调函数执行SQL查询并缓存结果。
 
-```
+```php
 $id = Yii::$app->request->get('id');
 $collection = Yii::$app->db->cache(function (Connection $db) use($id){
 	return self::findOne(['id'=>$id]);
@@ -120,7 +120,7 @@ var_dump($collection);
 
 在查询时，`and`和`or`条件共用。
 
-```
+```php
 Topic::updateAll(
     ['last_comment_time' => new Expression('created_at')],
 //  ['or', ['type' => Topic::TYPE, 'last_comment_username' => ''], ['type' => Topic::TYPE, 'last_comment_username' => null]]
@@ -130,7 +130,7 @@ Topic::updateAll(
 
 #### 嵌套查询
 
-```
+```php
 $subQuery = new Query();
 $subQuery->from(PostComment::tableName())->where(['status' => PostComment::STATUS_ACTIVE])->orderBy(['created_at' => SORT_DESC]);
 $comment = PostComment::find()->from(['tmpA' => $subQuery])
@@ -146,7 +146,7 @@ $comment = PostComment::find()->from(['tmpA' => $subQuery])
 
 #### 获取模块/控制器/动作的id
 
-```
+```php
 $this->module->id
 
 $this->id
@@ -156,7 +156,7 @@ $this->action->id
 
 #### 表单提交失败调试
 
-```
+```php
 echo array_values($model->getFirstErrors())[0];exit;
 ```
 
@@ -164,7 +164,7 @@ echo array_values($model->getFirstErrors())[0];exit;
 
 存在一个文件地址，关于一些下载需要的header头信息Yii2已经帮我们完成，如下操作即可。
 
-```
+```php
 public function actionDownload($id)
 {
 	$model = $this->findModel($id);
@@ -180,7 +180,7 @@ public function actionDownload($id)
 
 #### 打印数据
 
-```
+```php
 \yii\helpers\VarDumper::dump($var);
 
 \yii\helpers\VarDumper::dump($var, 10 ,true);die; //  使用2  第二个参数是数组的深度  第三个参数是是否显示代码高亮（默认不显示）
@@ -188,7 +188,7 @@ public function actionDownload($id)
 
 #### 控制器调用其他控制器方法
 
-```
+```php
 Yii::$app->runAction('new_controller/new_action', $params);
 // 或者
 return (new SecondController('second', Yii::$app->module))->runAction('index', $data);
@@ -196,7 +196,7 @@ return (new SecondController('second', Yii::$app->module))->runAction('index', $
 
 #### 获取GET数据
 
-```
+```php
 Yii::$app->getRequest()->get('id');
 ```
 
@@ -206,7 +206,7 @@ Yii::$app->getRequest()->get('id');
 
 #### 视图中获取当前模块/控制器/方法id
 
-```
+```php
 Yii::$app->controller->module->id;
 
 Yii::$app->controller->id
@@ -216,7 +216,7 @@ Yii::$app->controller->action->id
 
 ### 防止SQL注入或者XSS攻击
 
-```
+```php
 echo yii\helpers\Html::encode($view_hello_str) // 可以原样显示<script></script>代码,但不解析 
 echo yii\helpers\HtmlPurifier::process($view_hello_str)  // 可以过滤掉<script></script>代码 
 ```
@@ -229,7 +229,7 @@ echo yii\helpers\HtmlPurifier::process($view_hello_str)  // 可以过滤掉<scri
 
 修改登陆状态超时时间（到期后自动退出登陆） `config/web.php`中的**components**组件数组中。
 
-```
+```php
 'user' => [
 	'class'=>'yii\web\User',
  	'identityClass' => 'common\models\User',
@@ -243,9 +243,10 @@ echo yii\helpers\HtmlPurifier::process($view_hello_str)  // 可以过滤掉<scri
 
 通过下面的IP地址方式配置debug的显示，便于调试代码。
 
-```
+```php
 $config['modules']['debug'] = [
     'class' => 'yii\debug\Module',
     'allowedIPs' => ['127.0.0.1', '192.168.0.*', '192.168.33.1'],
 ];
 ```
+
