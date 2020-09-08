@@ -110,7 +110,44 @@
      - [邮件发送](./docs/10框架篇/QA.md#Mail)
      - [缓存](./docs/10框架篇/QA.md#Cache)
    * YII
+     
+     - [模型相关](./docs/10框架篇/Yii.md#_6)
+     
+     - - [获取查询SQL](./docs/10框架篇/Yii.md#SQL_8)
+       - [查询数据表中具体列](./docs/10框架篇/Yii.md#_16)
+       - [`Expression()`函数](./docs/10框架篇/Yii.md#Expression_24)
+       - [模型中事务编写](./docs/10框架篇/Yii.md#_44)
+       - [Model 里 rules 联合唯一规则](./docs/10框架篇/Yii.md#Model__rules__66)
+       - [是否存在的规则](./docs/10框架篇/Yii.md#_72)
+       - [表单验证两个字段选取一个](./docs/10框架篇/Yii.md#_83)
+       - [Like 模糊查询](./docs/10框架篇/Yii.md#Like__97)
+       - [执行SQL查询并缓存结果](./docs/10框架篇/Yii.md#SQL_102)
+       - [`and`和`or`共用](./docs/10框架篇/Yii.md#andor_112)
+       - [嵌套查询](./docs/10框架篇/Yii.md#_123)
+     
+     - [控制器相关](./docs/10框架篇/Yii.md#_136)
+     
+     - - [获取模块/控制器/动作的id](./docs/10框架篇/Yii.md#id_138)
+       - [表单提交失败调试](./docs/10框架篇/Yii.md#_147)
+       - [文件下载](./docs/10框架篇/Yii.md#_152)
+       - [打印数据](./docs/10框架篇/Yii.md#_168)
+       - [控制器调用其他控制器方法](./docs/10框架篇/Yii.md#_175)
+       - [获取GET数据](./docs/10框架篇/Yii.md#GET_182)
+     
+     - [视图相关](./docs/10框架篇/Yii.md#_191)
+     
+     - - [视图中获取当前模块/控制器/方法id](./docs/10框架篇/Yii.md#id_193)
+     
+     - [防止SQL注入或者XSS攻击](./docs/10框架篇/Yii.md#SQLXSS_202)
+     
+     - [配置相关](./docs/10框架篇/Yii.md#_211)
+     
+     - - [用户组件登录修改](./docs/10框架篇/Yii.md#_212)
+       - [配置文件IP白名单](./docs/10框架篇/Yii.md#IP_224)
+     
      - [队列](./docs/10框架篇/QB.md#queue)
+     
+     - 
    * [接口请求频率限制](./docs/10框架篇/QC.md#接口请求频率限制)
    * [接口返回数据](./docs/10框架篇/QC.md#接口返回数据)
    * [CURL请求接口](./docs/10框架篇/QC.md#curl)
@@ -124,7 +161,6 @@
   * [ElasticeSearch(分布式架构索引)](./docs/11架构篇/QA.md#ElasticeSearch)
   * [Kafka](./docs/11架构篇/QA.md#Kafka)
   * docker
-  * composer
   * swoole
   * mycat
 
